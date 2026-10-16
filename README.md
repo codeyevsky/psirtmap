@@ -114,7 +114,13 @@ the user `PATH`.
 
 Download the archive for your platform from the
 [latest release](https://github.com/solongate/psirtmap/releases/latest) and
-verify it with the published `checksums.txt` file.
+verify it with the published `checksums.txt` file. Each release archive also
+carries a signed build provenance attestation you can verify with the
+[GitHub CLI](https://cli.github.com/):
+
+```sh
+gh attestation verify psirtmap_<version>_<os>_<arch>.tar.gz --owner solongate
+```
 
 Go users can install the latest tagged release directly:
 
@@ -358,6 +364,17 @@ CI verifies formatting, dependencies, known reachable Go vulnerabilities,
 static analysis, race-enabled tests, and release builds for macOS, Linux, and
 Windows.
 
+## Dependencies
+
+Direct and indirect Go dependencies are pinned in `go.mod` and `go.sum`.
+[Dependabot](.github/dependabot.yml) opens a pull request when a dependency has
+an update, and CI runs
+[`govulncheck`](https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck) on every
+push and pull request to catch known, reachable vulnerabilities before they
+reach a release. A new dependency is added only when it is actively
+maintained, carries an OSI-approved license, and its license text is recorded
+in [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
+
 ## Project information
 
 - [Roadmap](ROADMAP.md) — product direction and explicit non-goals
@@ -365,6 +382,7 @@ Windows.
 - [Threat model](docs/THREAT_MODEL.md) — trust boundaries, controls, and known limitations
 - [Security policy](SECURITY.md) — private vulnerability reporting
 - [Contributing](CONTRIBUTING.md) — issue and pull-request policy
+- [Maintainers](docs/MAINTAINERS.md) — who holds access to sensitive project resources
 - [Changelog](CHANGELOG.md) — release history
 
 ## License

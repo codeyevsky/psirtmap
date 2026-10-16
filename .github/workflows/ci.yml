@@ -67,3 +67,34 @@ jobs:
             CGO_ENABLED=0 GOOS="$os" GOARCH="$arch" \
               go build -trimpath -o "$output" .
           done
+
+  # Every commit needs a Signed-off-by trailer asserting the contributor has
+  # the right to submit the change (see CONTRIBUTING.md). This checks the
+  # commits in the pull request, not just the merge commit, so a rebase or
+  # a squash can't paper over one that's missing it. Merge commits are
+  # excluded: they bring in another branch's already-certified history
+  # rather than contributing new content of their own.
+  dco:
+    name: DCO sign-off
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+
+      - name: every commit is signed off
+        run: |
+          set -euo pipefail
+          git fetch origin "${{ github.base_ref }}"
+          missing=""
+          for sha in $(git rev-list --no-merges "origin/${{ github.base_ref }}..HEAD"); do
+            if ! git log -1 --format=%B "$sha" | grep -qE '^Signed-off-by: .+ <.+>$'; then
+              missing="$missing$sha "
+            fi
+          done
+          if [ -n "$missing" ]; then
+            echo "commits missing a Signed-off-by trailer: $missing" >&2
+            echo "fix with: git rebase --signoff origin/${{ github.base_ref }}" >&2
+            exit 1
+          fi

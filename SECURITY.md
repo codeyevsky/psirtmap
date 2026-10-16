@@ -41,6 +41,15 @@ SolonGate will review usable reports, investigate confirmed issues, and
 coordinate remediation and disclosure with the reporter. Please allow time for
 analysis before publishing details that could put users at risk.
 
+| Milestone | Target |
+|---|---|
+| Acknowledgment of a new report | 3 business days |
+| Initial assessment (triage, severity, affected versions) | 10 business days |
+| Fix or mitigation for confirmed issues | 90 days, or sooner for actively exploited issues |
+
+These are targets, not guarantees; SolonGate will communicate delays and keep
+the reporter updated on progress.
+
 ## Scope clarification
 
 PSIRTMap matches component versions against third-party vulnerability data. A

@@ -43,6 +43,16 @@ requested it. Unsolicited pull requests may be closed without review.
 Maintainer-requested changes should be small, focused, tested, and accompanied
 by documentation when they alter user-visible behavior.
 
+Every commit must carry a `Signed-off-by` trailer certifying you have the
+right to submit the change under the
+[Developer Certificate of Origin](https://developercertificate.org/):
+
+```sh
+git commit --signoff
+```
+
+The CI "DCO sign-off" check enforces this on every pull request.
+
 ## Maintainer development checks
 
 ```sh
