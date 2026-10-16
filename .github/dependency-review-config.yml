@@ -1,0 +1,6 @@
+# Suppressions for the "Dependency review" CI check — see SECURITY.md's
+# "Dependency vulnerability remediation" section. Add a GHSA ID here only in
+# the same pull request as a written justification for why the advisory
+# doesn't apply to PSIRTMap, mirrored in docs/VEX.md.
+fail-on-severity: low
+allow-ghsas: []

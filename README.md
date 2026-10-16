@@ -132,6 +132,10 @@ carries a signed build provenance attestation you can verify with the
 gh attestation verify psirtmap_<version>_<os>_<arch>.tar.gz --owner solongate
 ```
 
+Each release also publishes a CycloneDX SBOM for PSIRTMap's own build
+(`psirtmap_<version>_sbom.cdx.json`) covering its Go module dependencies and
+their licenses.
+
 Go users can install the latest tagged release directly:
 
 ```sh

@@ -94,6 +94,9 @@ jobs:
           build_archive linux amd64
           build_archive windows amd64
 
+          go run github.com/CycloneDX/cyclonedx-gomod/cmd/cyclonedx-gomod@v1.12.0 \
+            mod -json -licenses -output "dist/psirtmap_${version}_sbom.cdx.json" .
+
           (cd dist && sha256sum ./* > checksums.txt)
 
       - name: Attest build provenance

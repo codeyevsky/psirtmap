@@ -12,6 +12,11 @@ triaging private security advisories.
 Other collaborators may hold read access for review and testing but do not
 have merge, release, or security-advisory permissions.
 
+Granting anyone admin, maintain, or write access — including adding a name to
+the table above — requires agreement from both existing maintainers before the
+access change is made, confirming the person's role and need for that level
+of access.
+
 See [CONTRIBUTING.md](../CONTRIBUTING.md) for how changes are accepted and
 [SECURITY.md](../SECURITY.md) for how to reach maintainers privately about a
 vulnerability.

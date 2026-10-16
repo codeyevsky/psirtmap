@@ -40,8 +40,9 @@ process in [SECURITY.md](SECURITY.md).
 Please do not open a pull request unless a SolonGate maintainer has explicitly
 requested it. Unsolicited pull requests may be closed without review.
 
-Maintainer-requested changes should be small, focused, tested, and accompanied
-by documentation when they alter user-visible behavior.
+Maintainer-requested changes should be small and focused. A change that alters
+behavior must add or update tests in the automated suite, and must be
+accompanied by documentation when it alters user-visible behavior.
 
 Every commit must carry a `Signed-off-by` trailer certifying you have the
 right to submit the change under the
@@ -54,6 +55,10 @@ git commit --signoff
 The CI "DCO sign-off" check enforces this on every pull request.
 
 ## Maintainer development checks
+
+CI runs these same checks automatically on every push to `main` and every
+pull request, plus CodeQL static analysis and a dependency review (see
+[SECURITY.md](SECURITY.md)).
 
 ```sh
 gofmt -w .
