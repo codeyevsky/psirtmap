@@ -22,6 +22,7 @@ firmware, and embedded-software manufacturers.
 
 [![OpenSSF Baseline 1](https://www.bestpractices.dev/badge_static/baseline-1)](https://www.bestpractices.dev/projects/15533/baseline-1)
 [![OpenSSF Baseline 2](https://www.bestpractices.dev/badge_static/baseline-2)](https://www.bestpractices.dev/projects/15533/baseline-2)
+[![OpenSSF Baseline 3](https://www.bestpractices.dev/badge_static/baseline-3)](https://www.bestpractices.dev/projects/15533/baseline-3)
 
 </div>
 
