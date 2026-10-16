@@ -1,11 +1,28 @@
 param(
     [string]$Version = $env:PSIRTMAP_VERSION,
     [string]$InstallDir = "$env:LOCALAPPDATA\Programs\PSIRTMap",
-    [switch]$NoPathUpdate
+    [switch]$NoPathUpdate,
+    [switch]$Uninstall
 )
 
 $ErrorActionPreference = "Stop"
 $repository = "solongate/psirtmap"
+
+if ($Uninstall) {
+    $exePath = Join-Path $InstallDir "psirtmap.exe"
+    if (Test-Path $exePath) {
+        Remove-Item -Force $exePath
+        Write-Host "Removed $exePath"
+    } else {
+        Write-Host "PSIRTMap was not found at $exePath"
+    }
+
+    $userPath = [Environment]::GetEnvironmentVariable("Path", "User")
+    $entries = @($userPath -split ';' | Where-Object { $_ -and $_ -ne $InstallDir })
+    [Environment]::SetEnvironmentVariable("Path", ($entries -join ';'), "User")
+
+    return
+}
 
 if (-not $Version) {
     $release = Invoke-RestMethod "https://api.github.com/repos/$repository/releases/latest"

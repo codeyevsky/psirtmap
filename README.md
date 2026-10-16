@@ -161,6 +161,25 @@ Ensure Go's binary directory is on `PATH` after `go install`.
 
 PSIRTMap requires no SQLite installation or background service.
 
+### Uninstall
+
+If PSIRTMap was installed with `install.sh`, on macOS or Linux:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/solongate/psirtmap/main/scripts/install.sh | sh -s uninstall
+```
+
+On Windows PowerShell, pass `-Uninstall` to the installer script you downloaded:
+
+```powershell
+./install.ps1 -Uninstall
+```
+
+Either command removes the installed binary and, on Windows, the `PATH` entry
+added at install time. A local PSIRTMap database is never touched by install
+or uninstall; remove it yourself if you no longer need it (see
+[Local data](#local-data)).
+
 ## Start in 60 seconds
 
 Open the dashboard:
@@ -443,6 +462,8 @@ in [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
 - [Security policy](SECURITY.md) — private vulnerability reporting
 - [Contributing](CONTRIBUTING.md) — issue and pull-request policy
 - [Maintainers](docs/MAINTAINERS.md) — who holds access to sensitive project resources
+- [Governance](GOVERNANCE.md) — how project decisions get made
+- [Code of Conduct](CODE_OF_CONDUCT.md) — expected behaviour in project spaces
 - [Changelog](CHANGELOG.md) — release history
 
 ## License

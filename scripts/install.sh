@@ -4,6 +4,7 @@ set -eu
 repository="solongate/psirtmap"
 install_dir="${PSIRTMAP_INSTALL_DIR:-}"
 version="${PSIRTMAP_VERSION:-}"
+action="${1:-install}"
 
 need_command() {
   if ! command -v "$1" >/dev/null 2>&1; then
@@ -11,6 +12,28 @@ need_command() {
     exit 1
   fi
 }
+
+if [ "$action" = "uninstall" ]; then
+  brew_prefix=""
+  if command -v brew >/dev/null 2>&1; then
+    brew_prefix="$(brew --prefix)/bin"
+  fi
+  removed=0
+  for dir in "$install_dir" "$HOME/.local/bin" "/usr/local/bin" "$brew_prefix"; do
+    [ -z "$dir" ] && continue
+    if [ -f "$dir/psirtmap" ]; then
+      rm -f "$dir/psirtmap"
+      printf 'Removed %s/psirtmap\n' "$dir"
+      removed=1
+    fi
+  done
+  if [ "$removed" = 0 ]; then
+    printf 'PSIRTMap was not found in any common install location.\n' >&2
+    printf 'If you installed it elsewhere, remove that copy manually.\n' >&2
+    exit 1
+  fi
+  exit 0
+fi
 
 need_command curl
 need_command tar
