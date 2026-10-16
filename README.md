@@ -20,7 +20,8 @@ firmware, and embedded-software manufacturers.
 [![Go](https://img.shields.io/badge/Go-1.27.2%2B-00ADD8?style=flat-square&logo=go&logoColor=white)](go.mod)
 [![License](https://img.shields.io/github/license/solongate/psirtmap?style=flat-square)](LICENSE)
 
-[![OpenSSF Baseline](https://www.bestpractices.dev/projects/15533/baseline)](https://www.bestpractices.dev/projects/15533)
+[![OpenSSF Baseline 1](https://www.bestpractices.dev/badge_static/baseline-1)](https://www.bestpractices.dev/projects/15533/baseline-1)
+[![OpenSSF Baseline 2](https://www.bestpractices.dev/badge_static/baseline-2)](https://www.bestpractices.dev/projects/15533/baseline-2)
 
 </div>
 
