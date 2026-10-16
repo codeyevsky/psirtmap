@@ -19,6 +19,7 @@ firmware, and embedded-software manufacturers.
 [![CI](https://img.shields.io/github/actions/workflow/status/solongate/psirtmap/ci.yml?branch=main&style=flat-square&label=CI)](https://github.com/solongate/psirtmap/actions/workflows/ci.yml)
 [![Go](https://img.shields.io/badge/Go-1.27.2%2B-00ADD8?style=flat-square&logo=go&logoColor=white)](go.mod)
 [![License](https://img.shields.io/github/license/solongate/psirtmap?style=flat-square)](LICENSE)
+
 [![OpenSSF Baseline](https://www.bestpractices.dev/projects/15533/baseline)](https://www.bestpractices.dev/projects/15533)
 
 </div>
