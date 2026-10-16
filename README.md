@@ -26,7 +26,6 @@ firmware, and embedded-software manufacturers.
   <tr>
     <td align="center">
       <sub><b>Security Badges</b></sub><br>
-      <a href="https://www.bestpractices.dev/projects/15533"><img src="https://www.bestpractices.dev/projects/15533/badge" alt="OpenSSF Best Practices" height="20"></a><br>
       <a href="https://www.bestpractices.dev/projects/15533"><img src="https://www.bestpractices.dev/badge_static/passing" alt="OpenSSF Best Practices Passing" height="20"></a>
       <a href="https://www.bestpractices.dev/projects/15533"><img src="https://www.bestpractices.dev/badge_static/silver" alt="OpenSSF Best Practices Silver" height="20"></a>
       <a href="https://www.bestpractices.dev/projects/15533"><img src="https://www.bestpractices.dev/badge_static/gold" alt="OpenSSF Best Practices Gold" height="20"></a><br>
