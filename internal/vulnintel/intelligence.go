@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+
 // Package vulnintel derives review-friendly intelligence from source records.
 package vulnintel
 

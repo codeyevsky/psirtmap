@@ -54,6 +54,33 @@ git commit --signoff
 
 The CI "DCO sign-off" check enforces this on every pull request.
 
+## Code review
+
+Every pull request requires at least one approving review from a maintainer
+other than the author before it can merge; branch protection on `main`
+enforces this, including for maintainers with admin access, and requires a
+linear history (no merge commits).
+
+A reviewer checks that the change:
+
+- Does what the linked issue or maintainer request asked for, and nothing
+  unrelated.
+- Adds or updates tests for any behavior change, per the "Pull requests"
+  section above.
+- Updates documentation when it changes user-visible behavior.
+- Passes CI: formatting, `go vet`, the race-enabled test suite, `govulncheck`,
+  CodeQL, dependency review, and the DCO sign-off check.
+- Does not introduce new network calls, file writes, or dependencies without a
+  clear reason, given PSIRTMap's offline-first design (see
+  [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)).
+- Does not add credentials, customer data, or proprietary SBOM content to the
+  repository.
+
+A change that touches vulnerability scoring, the offline feed signature
+verification, or the database migration path gets a second maintainer's look
+when both maintainers are reachable, since mistakes there are harder to
+detect after release.
+
 ## Maintainer development checks
 
 CI runs these same checks automatically on every push to `main` and every

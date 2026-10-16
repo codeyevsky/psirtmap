@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+
 // Package store persists PSIRTMap's product inventory and local vulnerability
 // intelligence in SQLite.
 package store

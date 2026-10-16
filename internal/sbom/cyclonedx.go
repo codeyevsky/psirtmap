@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+
 // Package sbom reads software bills of materials into PSIRTMap's component
 // identity model.
 package sbom

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+
 // Package cli implements the PSIRTMap command-line interface.
 package cli
 

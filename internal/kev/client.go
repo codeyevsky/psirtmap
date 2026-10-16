@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: Apache-2.0
+
 // Package kev downloads and validates CISA's Known Exploited Vulnerabilities
 // catalog for local prioritization.
 package kev
