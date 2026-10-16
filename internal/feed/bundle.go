@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: Apache-2.0
+// Copyright (c) PSIRTMap contributors
 
 // Package feed creates and validates portable PSIRTMap vulnerability-data
 // bundles for controlled transfer into disconnected environments.

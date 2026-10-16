@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: Apache-2.0
+// Copyright (c) PSIRTMap contributors
 
 // Package osv provides a small client for the OSV.dev API.
 package osv

@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: Apache-2.0
+// Copyright (c) PSIRTMap contributors
 
 // Package vulnintel derives review-friendly intelligence from source records.
 package vulnintel
