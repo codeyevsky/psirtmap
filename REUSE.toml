@@ -1,0 +1,22 @@
+version = 1
+SPDX-PackageName = "psirtmap"
+SPDX-PackageDownloadLocation = "https://github.com/solongate/psirtmap"
+
+[[annotations]]
+path = [
+  "**/*.md",
+  "**/*.yml",
+  "**/*.yaml",
+  "**/*.json",
+  "**/*.mod",
+  "**/*.sum",
+  "**/*.sh",
+  "**/*.ps1",
+  "**/*.sql",
+  "**/*.png",
+  "**/*.svg",
+  ".gitignore",
+  "NOTICE",
+]
+SPDX-FileCopyrightText = "2026 the SolonGate contributors"
+SPDX-License-Identifier = "Apache-2.0"
