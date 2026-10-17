@@ -52,7 +52,7 @@ if [ -z "$install_dir" ]; then
 fi
 
 if [ -z "$version" ]; then
-  version=$(curl -fsSL "https://api.github.com/repos/$repository/releases/latest" |
+  version=$(curl -fsSL --proto '=https' --tlsv1.2 "https://api.github.com/repos/$repository/releases/latest" |
     sed -n 's/.*"tag_name":[[:space:]]*"\([^"]*\)".*/\1/p' | head -n 1)
 fi
 if [ -z "$version" ]; then
@@ -90,8 +90,8 @@ temporary_dir=$(mktemp -d "${TMPDIR:-/tmp}/psirtmap-install.XXXXXX")
 trap 'rm -rf "$temporary_dir"' EXIT HUP INT TERM
 
 printf 'Downloading PSIRTMap %s for %s/%s...\n' "$version" "$platform" "$architecture"
-curl -fsSL "$base_url/$archive" -o "$temporary_dir/$archive"
-curl -fsSL "$base_url/checksums.txt" -o "$temporary_dir/checksums.txt"
+curl -fsSL --proto '=https' --tlsv1.2 "$base_url/$archive" -o "$temporary_dir/$archive"
+curl -fsSL --proto '=https' --tlsv1.2 "$base_url/checksums.txt" -o "$temporary_dir/checksums.txt"
 
 expected=$(awk -v name="$archive" '{ file=$2; sub(/^\.\//, "", file); if (file == name) { print $1; exit } }' "$temporary_dir/checksums.txt")
 if [ -z "$expected" ]; then
