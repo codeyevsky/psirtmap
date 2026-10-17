@@ -102,6 +102,31 @@ jobs:
             exit 1
           fi
 
+  # SonarQube Cloud analysis: quality gate, security/reliability/maintainability
+  # ratings and coverage, surfaced as README badges. Skipped on fork PRs, which
+  # cannot see the SONAR_TOKEN secret.
+  sonarqube:
+    name: SonarQube Cloud
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+          cache: false
+
+      - name: coverage
+        run: go test -count=1 -coverprofile=coverage.out ./... || true
+
+      - name: SonarQube Cloud scan
+        uses: SonarSource/sonarqube-scan-action@299e4b793aaa83bf2aba7c9c14bedbb485688ec4 # v7.1.0
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
   dependency-review:
     name: Dependency review
     runs-on: ubuntu-latest
