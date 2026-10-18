@@ -678,7 +678,7 @@ func (d *DB) migrate(ctx context.Context) error {
 				continue
 			}
 			statement := fmt.Sprintf("ALTER TABLE %s ADD COLUMN %s %s", column.table, column.name, column.definition)
-			if _, err := transaction.ExecContext(ctx, statement); err != nil {
+			if _, err := transaction.ExecContext(ctx, statement); err != nil { // NOSONAR: table/name passed safeIdentifier above; SQLite has no bind parameter for identifiers
 				return fmt.Errorf("apply schema migration: %w", err)
 			}
 		}
@@ -711,7 +711,7 @@ func (d *DB) migrate(ctx context.Context) error {
 				continue
 			}
 			statement := fmt.Sprintf("ALTER TABLE feed_imports ADD COLUMN %s %s", column.name, column.definition)
-			if _, err := transaction.ExecContext(ctx, statement); err != nil {
+			if _, err := transaction.ExecContext(ctx, statement); err != nil { // NOSONAR: name passed safeIdentifier above; SQLite has no bind parameter for identifiers
 				return fmt.Errorf("apply schema migration: %w", err)
 			}
 		}
