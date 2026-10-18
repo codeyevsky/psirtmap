@@ -13,6 +13,7 @@ path = [
   "**/*.sh",
   "**/*.ps1",
   "**/*.sql",
+  "**/*.properties",
   "**/*.png",
   "**/*.svg",
   ".gitignore",
